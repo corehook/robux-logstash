@@ -1,0 +1,20 @@
+input {
+    file {
+      type => "robux_logs"
+      path => ["<%= @log_file %>"]
+      codec => "<%= @log_codec %>"
+      start_position => "end"
+      stat_interval => 5
+      tags => ["<%= @hostname %>.<%= @env %>.om", "application", "<%= @env %>"]
+    }
+}
+
+output {
+  if [type] == "robux_logs" {
+    elasticsearch {
+      embedded => false
+      cluster => "<%= @elastic_cluster %>"
+      host => "<%= @elastic_host %>"
+    }
+  }
+}
