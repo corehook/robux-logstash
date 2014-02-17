@@ -5,7 +5,7 @@ bash "starting logstash" do
   code <<-EOC
     cd #{node.robux.dirs.base_dir}/bin/
     chmod +x logstash.start.sh
-     ./logstash.start.sh &
+    bash logstash.start.sh
     sleep 10
   EOC
 end
