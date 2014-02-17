@@ -21,7 +21,7 @@ template "#{node.robux.dirs.base_dir}/bin/logstash.conf" do
     :env => "#{node.robux.rails_env}",
     :hostname => "#{node.hostname}",
     :elastic_host => "#{node.logstash.elastic_host}",
-    :elastic_host => "#{node.logstash.elastic_host}",
+    :elastic_port => "#{node.logstash.elastic_port}",
     :elastic_cluster => "#{node.logstash.elastic_cluster}",
     :log_codec => "#{node.logstash.codec}",
     :log_file => "#{node.logstash.log_file}"
