@@ -5,7 +5,7 @@ input {
       codec => "<%= @log_codec %>"
       start_position => "end"
       stat_interval => 5
-      tags => ["<%= @hostname %>.<%= @env %>.om", "application", "<%= @env %>"]
+      tags => ["application", "<%= @env %>"]
     }
 }
 
@@ -15,6 +15,7 @@ output {
       embedded => false
       cluster => "<%= @elastic_cluster %>"
       host => "<%= @elastic_host %>"
+      port => <%= @elastic_port %>
     }
   }
 }
