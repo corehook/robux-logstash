@@ -1,19 +1,17 @@
 input {
-    file {
-      type => "robux_logs"
-      path => ["<%= @log_file %>"]
-      codec => "<%= @log_codec %>"
-      start_position => "end"
-      stat_interval => 5
-      tags => ["application", "<%= @env %>"]
-    }
+  file {
+    type => "robux.<%= @env %>"
+    path => ["<%= @log_file %>"]
+    debug => false
+    codec => "<%= @log_codec %>"
+    start_position => "end"
+    stat_interval => 5
+    tags => ["application", "<%= @env %>"]
+  }
 }
-
 output {
-  if [type] == "robux_logs" {
-    elasticsearch {
-      embedded => false
-      cluster => "<%= @elastic_cluster %>"
+  if [type] == "robux.<%= @env %>" {
+    elasticsearch_http {
       host => "<%= @elastic_host %>"
       port => <%= @elastic_port %>
     }

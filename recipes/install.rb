@@ -3,7 +3,14 @@
   package pack
 end
 
-cookbook_file "#{node.robux.dirs.base_dir}/#{node.robux.dirs.scripts}/logstash.jar" do
+directory "#{node.robux.dirs.logstash}" do
+  recursive true
+  owner node.user
+  group node.group
+  action :create
+end
+
+cookbook_file "#{node.robux.dirs.logstash}/logstash.jar" do
   source "logstash.jar"
   owner node.user
   group node.group
@@ -11,8 +18,7 @@ cookbook_file "#{node.robux.dirs.base_dir}/#{node.robux.dirs.scripts}/logstash.j
   ignore_failure true
 end
 
-
-template "#{node.robux.dirs.base_dir}/bin/logstash.conf" do
+template "#{node.robux.dirs.logstash}/logstash.conf" do
   source 'logstash.conf.erb'
   owner node.user
   group node.group
@@ -28,7 +34,7 @@ template "#{node.robux.dirs.base_dir}/bin/logstash.conf" do
   })
 end
 
-template "#{node.robux.dirs.base_dir}/bin/logstash.start.sh" do
+template "#{node.robux.dirs.logstash}/logstash.start.sh" do
   source 'logstash.start.sh.erb'
   owner node.user
   group node.group
@@ -40,7 +46,7 @@ template "#{node.robux.dirs.base_dir}/bin/logstash.start.sh" do
   })
 end
 
-template "#{node.robux.dirs.base_dir}/bin/logstash.stop.sh" do
+template "#{node.robux.dirs.logstash}/logstash.stop.sh" do
   source 'logstash.stop.sh.erb'
   owner node.user
   group node.group
