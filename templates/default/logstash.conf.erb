@@ -1,6 +1,6 @@
 input {
   file {
-    type => "robux.<%= @env %>"
+    type => "robux_<%= @env %>"
     path => ["<%= @log_file %>"]
     debug => false
     codec => "<%= @log_codec %>"
@@ -10,7 +10,7 @@ input {
   }
 }
 output {
-  if [type] == "robux.<%= @env %>" {
+  if [type] == "robux_<%= @env %>" {
     elasticsearch_http {
       host => "<%= @elastic_host %>"
       port => <%= @elastic_port %>

@@ -4,8 +4,8 @@ bash "starting logstash" do
   group node.group
   code <<-EOC
     cd #{node.robux.dirs.logstash}
-    chmod +x logstash.start.sh
-    bash logstash.start.sh
+    chmod +x start.sh
+    ./start.sh
     sleep 10
   EOC
 end

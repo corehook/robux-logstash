@@ -34,7 +34,7 @@ template "#{node.robux.dirs.logstash}/logstash.conf" do
   })
 end
 
-template "#{node.robux.dirs.logstash}/logstash.start.sh" do
+template "#{node.robux.dirs.logstash}/start.sh" do
   source 'logstash.start.sh.erb'
   owner node.user
   group node.group
@@ -46,7 +46,7 @@ template "#{node.robux.dirs.logstash}/logstash.start.sh" do
   })
 end
 
-template "#{node.robux.dirs.logstash}/logstash.stop.sh" do
+template "#{node.robux.dirs.logstash}/stop.sh" do
   source 'logstash.stop.sh.erb'
   owner node.user
   group node.group

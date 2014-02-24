@@ -4,7 +4,7 @@ bash "stopping logstash" do
   group node.group
   code <<-EOC
     cd #{node.robux.dirs.logstash}
-    chmod +x logstash.stop.sh
-    ./logstash.stop.sh
+    chmod +x stop.sh
+    ./stop.sh
   EOC
 end
