@@ -8,3 +8,4 @@ bash "remove logstash old files" do
 end
 
 include_recipe "robux-logstash::install"
+include_recipe "robux-logstash::restart"
