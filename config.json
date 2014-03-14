@@ -1,0 +1,4 @@
+[
+  {"name":"Переустановить logstash", "recipe_name":"reinstall","description":"Переустановить и перезапустить logstash"},
+  {"name":"Удалить logstash и остановить", "recipe_name":"uninstall","description":"Удалить logstash и остановить"},
+]

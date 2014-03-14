@@ -14,3 +14,5 @@ bash "remove files" do
     sudo rm -rf #{node.robux.dirs.base_dir}/bin/logstash.*
   EOC
 end
+
+include_recipe "robux-logstash::stop"
