@@ -9,6 +9,6 @@ template "#{node.robux.dirs.base_dir}/bin/logstash.conf" do
     :elastic_host => "#{node.logstash.elastic_host}",
     :elastic_cluster => "#{node.logstash.elastic_cluster}",
     :log_codec => "#{node.logstash.codec}",
-    :log_file => "#{node.logstash.log_file}"
+    :log_file => "#{node.robux.dirs.base_dir}/log/logstash_#{node.robux.rails_env}.log"
   })
 end
