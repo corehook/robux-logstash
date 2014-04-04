@@ -1,3 +1,5 @@
+puts "#{node.robux.dirs.base_dir}/app/log/logstash_#{node.robux.rails_env}.log"
+
 template "#{node.robux.dirs.base_dir}/bin/logstash.conf" do
   source 'logstash.conf.erb'
   owner node.user
